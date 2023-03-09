@@ -1,0 +1,79 @@
+Создал репозиторий ГИТ
+    Склонировал его
+
+python3 -m venv venv_drf
+source venv_drf/bin/activate
+
+pip install --upgrade pip
+pip install django
+
+cd teachbase_drf
+django-admin startproject teachbase  
+
+cd teachbase
+python manage.py runserver
+    сервер должен запуститься
+
+python manage.py migrate
+
+settings.py
+    LANGUAGE_CODE = 'en-us'
+    LANGUAGE_CODE = 'ru'
+
+    INSTALLED_APPS = [
+        ...
+        'drf.apps.DrfConfig',
+    }
+
+python manage.py startapp drf
+
+В файле models.py создаём нужные нам таблицы 
+
+python manage.py makemigrations
+python manage.py migrate
+
+python manage.py createsuperuser
+    admin 1234
+
+pip install djangorestframework
+
+settings.py
+    INSTALLED_APPS = [
+        ...
+        'rest_framework',
+    }
+
+
+
+
+
+
+
+АВТОРИЗАЦИЯ НА swagger
+
+https://go.teachbase.ru/oauth/token
+
+Public key 8bdf8070ca5eb1ee7565aa4722e9772a60612310f62f0a04ba4774e7527c836b
+Secret key c2c76197cc8de37d0d04a9cc4127ef7bb5c0961d4f96eeec6fff403e30b304dd
+    {
+        "client_id": "8bdf8070ca5eb1ee7565aa4722e9772a60612310f62f0a04ba4774e7527c836b",
+        "client_secret": "c2c76197cc8de37d0d04a9cc4127ef7bb5c0961d4f96eeec6fff403e30b304dd",
+        "grant_type": "client_credentials"
+    }
+
+Так получаем код id который вставляем в Authorization: Bearer Token 
+{"access_token":"UhuiYI9VMw2hgNLTsDkxdJ3A8555syg4AGn8g5jvROo","token_type":"Bearer","expires_in":6252,"created_at":1677565807,"resource_owner_id":30015}
+
+
+
+
+
+Docker
+
+Dockerfile
+    FROM python
+    WORKDIR /python
+    COPY . /python
+    EXPOSE 80
+
+docker build -t my_python .

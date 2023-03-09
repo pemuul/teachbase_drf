@@ -1,0 +1,120 @@
+{% extends "header.html" %}
+{% block title %}Список курсов{% endblock %}
+
+{% block content %}
+<style>
+    tr {
+        display: inline;
+    }
+</style>
+<div>
+    {{error}}
+    <br>
+    <h1>Введите свои данные:</h1>
+    <form method="post" action="">
+        {% csrf_token %}
+        <div class="input_data">
+            <div class="mb-3">
+                <tr>
+                    <th><label for="id_user">User:</label></th>
+                    <td>
+                    <input type="text" name="user" maxlength="50" id="id_user">
+                    </td>
+                </tr>
+            </div>
+            
+            <div class="mb-3">
+                <tr>
+                    <th><label for="id_email">Email:</label></th>
+                    <td>
+                    <input type="text" name="email" maxlength="255" id="id_email">
+                    </td>
+                </tr>
+            </div>
+            
+            <div class="mb-3">
+                <tr>
+                    <th><label for="id_name">Name:</label></th>
+                    <td>
+                    <input type="text" name="name" maxlength="100" id="id_name">
+                    </td>
+                </tr>
+            </div>
+            
+            <div class="mb-3">
+                <tr>
+                    <th><label for="id_last_name">Last name:</label></th>
+                    <td>
+                    <input type="text" name="last_name" maxlength="100" id="id_last_name">
+                    </td>
+                </tr>
+            </div>  
+            
+            <div class="mb-3">
+                <tr>
+                    <th><label for="id_description">Description:</label></th>
+                    <td>
+                    <input type="text" name="description" maxlength="255" id="id_description">
+                    </td>
+                </tr>
+            </div>
+            
+            <div class="mb-3">
+                <tr>
+                    <th><label for="id_phone">Phone:</label></th>
+                    <td>
+                    <input type="text" name="phone" maxlength="100" id="id_phone">
+                    </td>
+                </tr>
+            </div>
+            
+            <div class="mb-3">
+                <tr>
+                    <th><label for="id_password">Password:</label></th>
+                    <td>
+                    <input type="text" name="password" maxlength="100" id="id_password">
+                    </td>
+                </tr>
+            </div>
+        </div>
+        <input type="submit" value="Зарегистировать" />
+    </form>
+    <!--
+    <form method="post" action="/courser/account/register/">
+    
+        <div class="mb-3">
+            <label for="exampleInputLogin" class="form-label">Login</label>
+            <input type="login" class="form-control" id="exampleInputLogin" aria-describedby="loginHelp">
+            <div id="loginHelp" class="form-text">Введите свой логин</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Введите свою почту</div>
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" class="form-control" placeholder="Name">
+        </div>
+        <div class="mb-3">
+            <label for="last_name" class="form-label">last_name</label>
+            <input type="text" id="last_name" class="form-control" placeholder="last_name">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">description</label>
+            <input type="text" id="description" class="form-control" placeholder="description">
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">phone</label>
+            <input type="text" id="phone" class="form-control" placeholder="phone">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <input type="submit" value="OK">
+    </form>
+    -->
+</div>
+{% endblock %}

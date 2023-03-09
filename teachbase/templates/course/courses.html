@@ -1,0 +1,34 @@
+{% extends "header.html" %}
+
+{% block title %}Список курсов{% endblock %}
+
+{% block login %}
+{{ login }}
+{% endblock %}
+
+{% block content %}
+{% for course in courses %}
+    <div class="bg-light p-5 rounded">
+        <h1>{{ course.name }}</h1>
+        <p class="lead"><div>{{ course.description|safe }}</div></p>
+        <div class="col-md-8 themed-grid-col">
+            <a class="btn btn-lg btn-primary" href="{% url 'Course_id' course.id %}" role="button">Посмотреть подбробнее &raquo;</a>
+        </div>
+
+        {% if course.sessions  %}
+            <br>
+            <div class="col-md-4 themed-grid-col">
+                <h4 class="">Сессии:</h4>
+                {% for session in course.sessions %}
+                <p class="lead">{{ session.name }}</p>
+                {% endfor %}
+            </div>
+            {% if course.is_registered %}
+            <div class="col-md-4 themed-grid-col">
+                <p class="lead">Уже записаны</p>
+            </div>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endfor %}
+{% endblock %}

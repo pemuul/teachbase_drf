@@ -1,0 +1,36 @@
+{% extends "header.html" %}
+
+{% block title %}Список курсов{% endblock %}
+
+{% block content %}
+<h3>{{error}}</h3>
+
+  <div class="bg-light p-5 rounded">
+      <h1>{{ course.name }}</h1>
+      <p class="lead"><div>{{ course.description|safe  }}</div></p>
+      <h2>Записаться на сессию:</h2>
+      {% for session in course.sessions %}
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-lg btn-primary" disabled>{{ session.name }}</button>
+        {% if not session.is_registred %}
+        <form method="post" action="">
+          {% csrf_token %}
+
+          <input type="hidden" name="session_id" maxlength="100" id="session_id" value="{{ session.id }}">
+          
+          <input class="btn btn-lg btn-success" type="submit" value="Записаться" />
+        </form>
+        {% else %}
+        <form method="post" action="">
+          {% csrf_token %}
+
+          <input type="hidden" name="session_id" maxlength="100" id="session_id" value="{{ session.id }}">
+          <input type="hidden" name="unsign" maxlength="100" id="unsign" value="{{ session.id }}">
+          
+          <input class="btn btn-lg btn-outline-danger" type="submit" value="Отписаться" />
+        </form>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+{% endblock %}
