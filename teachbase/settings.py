@@ -1,4 +1,4 @@
 
-CLIENT_ID = '2'
+CLIENT_ID = ''
 
 CLIENT_SECRET = ''
