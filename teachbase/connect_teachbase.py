@@ -1,7 +1,7 @@
 import requests
 from datetime import datetime, timedelta, timezone
 
-from settings import CLIENT_ID, CLIENT_SECRET
+from teachbase_drf.teachbase.settings import CLIENT_ID, CLIENT_SECRET
 
 
 class Connect_teachbase:
