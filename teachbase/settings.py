@@ -1,4 +1,0 @@
-
-CLIENT_ID = '11'
-
-CLIENT_SECRET = ''
